@@ -4,7 +4,6 @@
 #include "src/fireballs.h"
 #include "src/obstacle.h"
 #include "src/tools.h"
-#include "src/particlesystem.h"
 
 #define W_WIDTH 1280
 #define W_HEIGHT 720
@@ -53,8 +52,6 @@ int main()
     players[2].set_commands(sf::Keyboard::I, sf::Keyboard::K, sf::Keyboard::J, sf::Keyboard::L);
 
     Fireballs fireballs;
-
-    ParticleSystem particles[3];
 
     bool start = false;
 
@@ -114,11 +111,6 @@ int main()
                 players[i].update_position(lap);
             }
             fireballs.update(lap);
-//            for (int i=0; i<3; i++)
-//            {
-//                particles[i].setEmitter(players[i].getPosition());
-//                particles[i].update(time.lap());
-//            }
         }
         else
             start = true;
@@ -134,10 +126,6 @@ int main()
         {
             window.draw(players[i]);
         }
-//        for (int i=0; i<3; i++)
-//        {
-//            window.draw(particles[i]);
-//        }
         window.draw(fps_text);
         window.display();
 
